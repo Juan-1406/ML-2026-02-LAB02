@@ -2,6 +2,10 @@
 
 from __future__ import annotations
 
+import numpy as np
+from sklearn.datasets import fetch_lfw_people
+
+from src.config import DIR_CACHE
 from src.datos.base import CargadorRostros
 from src.excepciones import EtapaPendienteAlumno
 from src.modelos import ConjuntoRostros
@@ -26,10 +30,26 @@ class CargadorLFW(CargadorRostros):
     nombre = "lfw"
 
     def cargar(self) -> ConjuntoRostros:
+        rostros = fetch_lfw_people(
+            min_faces_per_person=20,
+            resize=0.5,
+            data_home=str(DIR_CACHE),
+            download_if_missing=True,
+        )
+        
+        images = np.asarray(rostros.images)
+        x = np.asarray(rostros.data, dtype=float)
+        y = np.asarray(rostros.target, dtype=int)
+        
+        print("Dataset LFW cargado correctamente")
+        print(f"Dimensiones de las imagenes: {images.shape}")
+        print(f"Dimensiones de x: {x.shape}")
+        print(f"Dimensiones de y: {y.shape}")
+        print(f"Identidades disponibles: {len(np.unique(y))}")
+        
         raise EtapaPendienteAlumno(
             "datos.lfw.CargadorLFW",
-            "Filtre identidades con al menos 20 fotos, conserve hasta 50, "
-            "reindexe y y lea alto y ancho desde images.shape. "
-            "Después, python main.py lfw evaluará PCA, LDA y Fisherfaces "
-            "con el mismo protocolo que Olivetti.",
+            "Carga inicial completada"
+            "Pendiente: seleccionar hasta 50 identidades,"
+            "reindexar eriquetas y constuir ConjuntoRostros",
         )
