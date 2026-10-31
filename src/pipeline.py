@@ -1,7 +1,6 @@
 """Orquestación OOP del laboratorio.
 
-Etapas implementadas: Olivetti con PCA y LDA, tres clasificadores y figuras.
-Etapas pendientes del alumno: Fisherfaces y el experimento LFW.
+Olivetti y LFW con PCA, LDA y Fisherfaces, tres clasificadores y figuras.
 """
 
 from __future__ import annotations

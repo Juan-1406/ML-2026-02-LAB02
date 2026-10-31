@@ -1,4 +1,4 @@
-"""Carga de LFW. La selección de identidades la completa el alumno."""
+"""Carga de LFW. Selecciona las 50 identidades más frecuentes."""
 
 from __future__ import annotations
 

@@ -3,9 +3,9 @@
 
 Uso (con el entorno conda activado):
 
-    python main.py olivetti       # PCA y LDA sobre Olivetti; Fisherfaces avisa
-    python main.py lfw            # TODO(alumno): mismo protocolo cuando exista el cargador
-    python main.py experimentos   # Olivetti e intento de LFW
+    python main.py olivetti       # PCA, LDA y Fisherfaces sobre Olivetti
+    python main.py lfw            # mismo protocolo sobre LFW
+    python main.py experimentos   # Olivetti y LFW
 """
 
 from __future__ import annotations

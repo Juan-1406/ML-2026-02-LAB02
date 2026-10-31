@@ -41,11 +41,6 @@ class ServicioReconocimiento:
 
     def predecir(self, indice: int, embedding: str, clasificador: str, d: int) -> Prediccion:
         self._exigir_indice(indice)
-        if embedding == "fisherfaces":
-            raise ValueError(
-                "Fisherfaces es TODO(alumno) en src/embeddings/fisherfaces.py "
-                "y no está disponible en la interfaz."
-            )
         bundle = self._obtener_bundle(embedding, clasificador, d)
         x = self.particion.X_test[indice : indice + 1]
         Z = bundle["extractor"].transform(x)
